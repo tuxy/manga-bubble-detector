@@ -1,0 +1,26 @@
+<annotation>
+	<folder>manhaus</folder>
+	<filename>0e3c0118-b13f-47fe-ae67-89c33bdd4a86.jpg</filename>
+	<path>C:\Users\Fabio Torres\Desktop\mangalingo\mangas_scraper_page\img_mangas\manhaus\0e3c0118-b13f-47fe-ae67-89c33bdd4a86.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1135</width>
+		<height>1603</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>balloon</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>914</xmin>
+			<ymin>1008</ymin>
+			<xmax>1031</xmax>
+			<ymax>1254</ymax>
+		</bndbox>
+	</object>
+</annotation>
