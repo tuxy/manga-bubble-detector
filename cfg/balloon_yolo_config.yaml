@@ -1,0 +1,7 @@
+path: "C:/Users/Fabio Torres/projects/mangalingo/mangas_scraper_page/dataset"
+train: images/train
+val: images/valid
+test: images/test
+
+names:
+  0: balloon

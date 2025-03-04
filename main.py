@@ -1,25 +1,28 @@
-import os
-import random
+import torch
+from ultralytics import YOLO
 
-# Diretório onde as imagens estão
-dataset_path = "img_mangas/dataset/images"
+def train_model():
+    cuda_available = torch.cuda.is_available()
+    device = torch.device("cuda:0" if cuda_available else "cpu")
+    if cuda_available:
+        print(f"Training on GPU: {torch.cuda.get_device_name(0)}")
+    else:
+        print("WARNING: CUDA not available. Using CPU.")
 
-# Obtém todas as imagens
-images = [os.path.join(dataset_path, f) for f in os.listdir(dataset_path) if f.endswith(".jpg")]
+    model = YOLO("yolo12n.pt")
+    model.model.to(device)
 
-# Embaralha os dados para evitar viés
-random.shuffle(images)
+    results = model.train(
+        data="cfg/balloon_yolo_config.yaml",
+        epochs=1000,
+        imgsz=640,
+        project="backup",
+        name="balloon_training",
+        device=device,
+        batch=16,
+        workers=0
+    )
+    return results
 
-# Define a proporção (80% treino, 20% validação)
-split = int(0.8 * len(images))
-train_images = images[:split]
-valid_images = images[split:]
-
-# Salva os arquivos
-with open("img_mangas/dataset/train.txt", "w") as f:
-    f.write("\n".join(train_images))
-
-with open("img_mangas/dataset/valid.txt", "w") as f:
-    f.write("\n".join(valid_images))
-
-print("Arquivos train.txt e valid.txt gerados com sucesso!")
+if __name__ == "__main__":
+    train_model()
