@@ -1,4 +1,4 @@
-path: "C:/Users/Fabio Torres/projects/mangalingo/mangas_scraper_page/dataset"
+path: "../dataset" # If you encounter issues, replace this with the full absolute path to your dataset folder.
 train: images/train
 val: images/valid
 test: images/test
