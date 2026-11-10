@@ -1,0 +1,11 @@
+train: images/train
+val: images/valid
+test: images/test
+
+# Number of classes
+nc: 2
+
+# Class names
+names:
+  0: cat
+  1: dog
